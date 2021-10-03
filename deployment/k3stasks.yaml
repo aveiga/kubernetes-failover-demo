@@ -1,0 +1,22 @@
+---
+- name: Deploy PosgreSQL
+  hosts: localhost
+  tasks:
+    - name: Run PostgreSQL via Docker
+      command: docker-compose up -d
+      args:
+        chdir: ../docker
+- name: K3s 2 Room Deployment
+  hosts: room1,room2
+  tasks:
+    - name: k3s config file
+      become: yes
+      copy:
+        src: ./config.yaml
+        dest: /etc/rancher/k3s/
+        mode: 0644
+    - name: Install K3s
+      become: yes
+      shell: curl -sfL https://get.k3s.io | sh -
+      register: wp
+      failed_when: wp.rc not in [0,1]
