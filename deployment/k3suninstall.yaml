@@ -1,0 +1,7 @@
+---
+- name: Uninstall k3s
+  hosts: room1,room2
+  tasks:
+    - name: Run k3s uninstall script
+      become: yes
+      command: /usr/local/bin/k3s-uninstall.sh

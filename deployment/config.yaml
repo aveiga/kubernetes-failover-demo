@@ -1,1 +1,2 @@
-datastore-endpoint: "postgres://192.168.1.212:5432"
+datastore-endpoint: "postgres://postgres:postgres@192.168.1.229:5432/kubernetes?sslmode=disable"
+node-name: REPLACE-NODE-NAME
