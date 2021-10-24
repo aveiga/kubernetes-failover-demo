@@ -1,0 +1,10 @@
+---
+- name: Setup SSH access to all the rooms
+  hosts: room1,room2
+  tasks:
+    - name: Copy SSH Keys
+      become: yes
+      authorized_key:
+        user: ubuntu
+        state: present
+        key: "{{ lookup('file', '/Users/aveiga/.ssh/id_rsa.pub') }}"

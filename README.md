@@ -10,9 +10,15 @@
 
 ## Deploy
 
-1. Ensure room1 and room2 are known hosts
 1. Install Ansible
-1. Run `ansible-playbook deployment/k3stasks.yaml --ask-vault-pass`
+1. `cd deployment`
+1. Copy ssh keys: `ansible-playbook ssh-key-tasks.yaml --ask-vault-pass --ask-pass`. This shouldn't be needed when creating the VMs with Terraform
+1. Run `ansible-playbook k3stasks.yaml --ask-vault-pass`. This will use the `ansible.cfg` configuration file, which is defining the hosts file
+
+## Cleanup
+
+1. `ansible-playbook k3suninstall.yaml --ask-vault-pass`
+1. Delete the `kine` table from the `kubernetes` PostgreSQL Control Plane DB
 
 ## Vaulted vars
 

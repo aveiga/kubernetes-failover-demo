@@ -7,6 +7,7 @@
       args:
         chdir: ../docker
 - name: K3s 2 Room Deployment Configuration
+  gather_facts: False
   hosts: room1,room2
   tasks:
     - name: Copy k3s config file
