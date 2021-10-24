@@ -6,7 +6,7 @@
 1. `cd vm`
 1. Download the plugin: `packer init .`
 1. Format and validate: `packer fmt .` followed by `packer validate .`
-1. Build: `packer build --var-file=config.pkrvars.hcl parallels-ubuntu-server.pkr.hcl`
+1. Build: `packer build parallels-ubuntu-server.pkr.hcl`
 
 ## Deploy
 
@@ -21,3 +21,11 @@
 1. Fill the files with: `vaulted_become_pass: HOST_BECOME_PASSWORD`, replacing HOST_BECOME_PASSWORD with the correct value
 1. Create a `plain` file per HOST
 1. Fill them with: `ansible_become_pass: "{{ vaulted_become_pass }}"`
+
+# Extra
+
+## Ubuntu Server autoinstall (wip)
+
+1. create `cidata` dir
+1. inside it, create `user-data` and `meta-data` file. Check `vm/cidata` for examples
+1. create image
