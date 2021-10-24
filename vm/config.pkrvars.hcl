@@ -1,1 +1,0 @@
-iso_path: 'cenas'
