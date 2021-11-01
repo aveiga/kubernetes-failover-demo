@@ -60,8 +60,3 @@
       shell: curl -sfL https://get.k3s.io | sh -
       register: wp
       failed_when: wp.rc not in [0,1]
-    # - name: Restart k3s
-    #   ansible.builtin.systemd:
-    #     state: restarted
-    #     #daemon_reload: yes
-    #     name: k3s
