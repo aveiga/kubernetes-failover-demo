@@ -14,7 +14,7 @@ provider "aws" {
   region  = "eu-west-2"
 }
 
-resource "aws_instance" "jumpbox" {
+resource "aws_instance" "room1" {
   ami           = "ami-0ec37c31d2bd0d72d"
   instance_type = "t2.micro"
   key_name = "ubuntu-aws"
@@ -22,6 +22,19 @@ resource "aws_instance" "jumpbox" {
 
   tags = {
     Name = var.instance_tag
+    Role = "room1"
+  }
+}
+
+resource "aws_instance" "room2" {
+  ami           = "ami-0ec37c31d2bd0d72d"
+  instance_type = "t2.micro"
+  key_name = "ubuntu-aws"
+  vpc_security_group_ids = [aws_security_group.main.id]
+
+  tags = {
+    Name = var.instance_tag
+    Role = "room2"
   }
 }
 

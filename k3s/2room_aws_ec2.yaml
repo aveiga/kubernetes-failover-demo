@@ -1,0 +1,11 @@
+---
+plugin: aws_ec2
+regions:
+  - eu-west-2
+keyed_groups:
+  - key: tag.Role
+    separator: ""
+hostnames:
+  - tag:Role
+compose:
+  ansible_host: public_ip_address

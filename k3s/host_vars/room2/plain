@@ -1,1 +1,3 @@
 ansible_become_pass: "{{ vaulted_become_pass }}"
+ansible_ssh_user: ubuntu
+ansible_ssh_private_key_file: ~/Downloads/ubuntu-aws.cer
